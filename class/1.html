@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="clock.js"></script>
+<script>
+    // 123123123
+    class ExtendedClock extends Clock {
+        constructor(options){
+            super(options);
+            let { precision = 1000 } = options;
+            this.precision = precision;
+        }
+        start() {
+            this.render();
+            this.timer = setInterval(() => this.render(), this.precision);
+        }
+    }
+    var qq = new ExtendedClock({template:"h,m,s",precision:2000})
+</script>

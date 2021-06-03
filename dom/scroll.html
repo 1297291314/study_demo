@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #scroll{
+            overflow-y: auto;
+            width: 100px;
+            height: 500px;
+        }
+        .innercontent{
+            height: 1000px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="scroll">
+        <div class="innercontent"></div>
+    </div>
+</body>
+</html>
+<script>
+    var newele = document.createElement("div");
+    newele.style.overflowY = "scroll";
+    newele.style.height = "50px";
+    newele.style.width = "50px";
+    newele.style.background = "red";
+    document.body.append(newele);
+    var scrollbarw = newele.offsetWidth - newele.clientWidth;
+    console.log(scrollbarw);
+    newele.remove();
+    function scrollBottom(elem){
+        var par_content_H = elem.scrollHeight;//内容高度
+        var par_H = elem.clientHeight;// 容器高度
+        var scrollT = elem.scrollTop;// 容器已经滚动的高度
+        return par_content_H - par_H- scrollT;
+    }
+</script>

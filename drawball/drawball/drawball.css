@@ -1,0 +1,25 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+
+body{
+    padding-top: 30px;
+}
+#background{
+    width: 90%;
+    height: 700px;
+    margin: 0 auto;
+    background-color: lightgreen;
+    position:relative;
+}
+#ball{
+    position: absolute;
+    left: 100px;
+    top:100px;
+    width:30px;
+    height:30px;
+    background: url("ball.svg") 0 0  no-repeat;
+    background-size: 100% 100%;
+    cursor:pointer;
+}

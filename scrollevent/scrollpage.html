@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #scroll_page{
+            margin: 0 auto;
+            height:200px;
+            width:500px;
+            overflow-y: scroll;
+            border: 1px solid red;
+        }
+        #content{
+        }
+    </style>
+</head>
+<body>
+    <div id="scroll_page">
+        <div id="content">
+            <h1>Scroll me</h1>
+            <p>Date: Thu Apr 08 2021 21:12:03 GMT+0800 (中国标准时间)</p>
+            <p>Date: Thu Apr 08 2021 21:12:03 GMT+0800 (中国标准时间)</p>
+            <p>Date: Thu Apr 08 2021 21:12:03 GMT+0800 (中国标准时间)</p>
+            <p>Date: Thu Apr 08 2021 21:12:03 GMT+0800 (中国标准时间)</p>
+            <p>Date: Thu Apr 08 2021 21:12:03 GMT+0800 (中国标准时间)</p>
+            <p>Date: Thu Apr 08 2021 21:12:03 GMT+0800 (中国标准时间)</p>
+
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var scroll_page = document.querySelector("#scroll_page");
+    var content = document.querySelector("#content");
+    scroll_page.addEventListener("scroll", function(){
+        var scroll_top = scroll_page.scrollTop;
+        var scroll_height = scroll_page.scrollHeight;
+        var height = scroll_page.clientHeight;
+        var scroll_bottom = scroll_height - scroll_top -height;
+        if(scroll_bottom<=50){
+            var div = document.createElement("p");
+            div.innerText="Date"+ new Date();
+            content.append(div);
+        }
+    })
+</script>
