@@ -1,0 +1,19 @@
+{
+  "name": "webpack_demo",
+  "version": "1.0.0",
+  "description": "webpack打包实录复习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "水月镜花",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "eslint-config-enough": "^0.7.0",
+    "eslint-loader": "^4.0.2"
+  }
+}
