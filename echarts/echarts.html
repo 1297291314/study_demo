@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var colorList = ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc', '#007E99', '#626681', '#FFA8A8', '#6C3E00', '#DAD5B5', '#8CDAE5', '#004988', '#8E283B', '#255634']
+    function toRGB(color) {  
+    if (typeof color !== 'string') {  
+        return null;  
+    }  
+    var c = color.slice(1),  
+    ca = [],  
+    temp = '',  
+    reg3 = /^[0-9a-f]{3}$/i,  
+    reg6 = /^[0-9a-f]{6}$/i;  
+    if (reg3.test(c)) {  
+        for (var i = 0; i < c.length; i++) {  
+            temp = c[i] + '' + c[i];  
+            ca.push(parseInt(temp, 16));  
+        }  
+        return 'RGB(' + ca + ')';  
+    } else if (reg6.test(c)) {  
+        for (var i = 0; i < c.length; i += 2) {  
+            ca.push(parseInt(c.substr(i, 2), 16));  
+        }  
+        return 'rgbr(' + ca + ',0.1)';  
+    } else {  
+        return '参数不对啦';  
+    }  
+} 
+
+    var color = colorList.map(function(item, index){
+        return toRGB(item)
+    })
+</script>
