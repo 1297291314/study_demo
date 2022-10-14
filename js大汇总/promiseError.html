@@ -12,6 +12,11 @@
 </html>
 <script>
     var getData = new Promise((resolve,reject)=>{
-        
+        var qq = cc + 1
+    }).then(res=>{console.log(res)}).catch((error)=>{
+        console.log(error)
+        return 1 // 不会被返回
+    }).finally((res)=>{
+        console.log(res)
     })
 </script>
