@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const originObj = {a:'a',b:'b',c:[1,2,3],d:{dd:'dd'},fun(){
+        return '1'
+    }};
+    function deepClone(source){
+        const copyObj = source.constructor ===Array?[]:{}
+        if(source.constructor === Object||source.constructor === Array){
+                for(let key in source){ // 会遍历到原型链上的属性
+                    if(source.hasOwnProperty(key)){ // 过滤原型链上的属性
+                        if(source[key].constructor === Array||source[key].constructor === Object){
+                        copyObj[key] = deepClone(source[key])     
+                    }else{
+                        copyObj[key] = source[key]
+                    }
+                }
+            }
+            return copyObj
+        }else{
+            return source
+        }
+    }
+    const copyObj = deepClone(originObj)
+    console.log(originObj,copyObj)
+</script>

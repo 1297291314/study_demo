@@ -32,7 +32,7 @@ function sum(c){
 }
 var ccSum = sum.myBind(cc,1)
 console.log(ccSum())
-
+ 
 Function.prototype.myCall = function(context,arg){
     var contextThis = context || window
     contextThis.func = this
