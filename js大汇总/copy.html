@@ -21,30 +21,29 @@
     const root = source.constructor === Array? []:{}
     // 初始定义一颗树，
     // parent:主要为了记录当前节点引用地址,插入时
-    // key:用于记录,当前数据所在parant下的key值
-    // data：当前所需处理数据
+    // key:用于记录
+    // 
     const cloneTree = [{ 
-        parent:root,
-        key: undefined,
+        key: root,
         data: source
     }]
+    var rootflag = 0
     while(cloneTree.length>0){
-        const node = cloneTree.pop() //每次使用去除的node，一层一层遍历
-        const parent = node.parent
+        const node = cloneTree.pop() //每次使用去除的node
+        // const parent = node.parent
         const key = node.key
         const data = node.data
-        let res = parent // 记录初始时数据类型，（）
-        if(typeof key !== 'undefined'){
-            // 当数据不为根节点数据时，res作为复制中间（temp的角色，逐层复制）
-             res = parent[key] = data.constructor === Array?[]:{} 
+        let res = parent
+        if(rootflag !==0){
+            rootflag++
+             res = key = data.constructor === Array?[]:{} 
         }
-        for(var keyItem in data){ // 对该层数据进行遍历判断是否为对象或者数组
-            if(data.hasOwnProperty(keyItem)){// 判断是否是原型上数据
+        for(var keyItem in data){
+            if(data.hasOwnProperty(keyItem)){
                 if(data[keyItem].constructor === Array||data[keyItem].constructor === Object){
                     cloneTree.push({
-                        parent:res, // 记录该引用类型数据在需要复制结果root的位置
-                        key: keyItem, // 配合parent共同记录是该引用位置的哪个键值下的数据
-                        data: data[keyItem] // 需要处理的下一层数据
+                        key: res[keyItem],
+                        data: data[keyItem]
                     })
                 }else{
                     res[keyItem] = data[keyItem]
